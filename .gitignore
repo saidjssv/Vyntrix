@@ -1,0 +1,9 @@
+# dependencias
+node_modules/
+
+# configs
+config/
+
+# archivos de sistema
+.idea/
+.vscode/
