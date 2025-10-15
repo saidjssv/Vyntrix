@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Collection, Client, GatewayIntentBits } = require('discord.js');
-const { token}  = require('./config/config.json');
+const { token }  = require('./config/config.json');
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -46,4 +46,6 @@ for(const file of eventsFiles) {
 console.log('------------- EVENTS -------------');
 console.log(`Events loaded: \n` + eventsFiles.join('\n'));
 
-client.login(token);
+(async () => {
+    await client.login(token);
+})();
