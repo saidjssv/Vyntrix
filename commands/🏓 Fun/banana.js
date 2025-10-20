@@ -3,7 +3,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('banana')
-        .setDescription('Want to know how long is yo banana?'),
+        .setDescription('Quieres saber que tan grande es tu banana?'),
         async execute(interaction) {
             let banana = Math.floor(Math.random() * 100);
 

@@ -4,7 +4,7 @@ const Snipe = require('../../Schemas/snipeSchema');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('snipe')
-        .setDescription('Snipe commands for moderation')
+        .setDescription('Ve el último mensaje borrado')
         .setDefaultMemberPermissions(PermissionFlagsBits.GuildMessageManager),
     async execute(interaction) {
         let data = await Snipe.findOne({ channelId: interaction.channel.id });
