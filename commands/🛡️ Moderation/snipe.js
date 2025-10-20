@@ -19,8 +19,8 @@ module.exports = {
             return interaction.reply({embeds: [noData], ephemeral: true});
         } else {
             const SnipeEmbed = new EmbedBuilder()
-                .setTitle(`Mensaje borrado de: <@${data.userId}>`)
-                .setDescription(`> __**Contenido del mensaje:**__ **${data.msg}** \n > __**Borrado hace:**__ <t:${data.date}:R>`)
+                .setTitle(`Snipe!`)
+                .setDescription(`> __**Autor:**__ <@${data.userId}> \n > __**Contenido del mensaje:**__ **${data.msg}** \n > __**Borrado hace:**__ <t:${data.date}:R>`)
                 .setColor('Blue')
                 .setTimestamp()
 
