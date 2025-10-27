@@ -51,6 +51,6 @@ module.exports = {
             } catch(e) {
                 console.log('Error actualizando presencia: ' + e);
             }
-        }, 5000);
+        }, 15000);
     }
 }
