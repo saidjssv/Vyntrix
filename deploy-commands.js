@@ -2,6 +2,7 @@ const { REST, Routes } = require('discord.js');
 const { clientId, guildId, token } = require('./config/config.json');
 const fs = require('node:fs');
 const path = require('node:path');
+let colors = require('colors');
 
 const commands = [];
 // Grab all the command folders from the commands directory you created earlier
@@ -30,15 +31,15 @@ const rest = new REST().setToken(token);
 // and deploy your commands!
 (async () => {
 	try {
-        console.log('------------- COMMANDS -------------');
-		console.log(`Loading ${commands.length} commands...`);
+        console.log(colors.blue('------------- COMMANDS -------------'));
+		console.log(colors.yellow(`Loading ${commands.length} commands...`));
 
 		// The put method is used to fully refresh all commands in the guild with the current set
 		const data = await rest.put(Routes.applicationCommands(clientId), { body: commands });
 
-		console.log(`Commands loaded: ` + data.length);
+		console.log(colors.green(`Commands loaded: ` + data.length));
 	} catch (error) {
 		// And of course, make sure you catch and log any errors!
-		console.error(error);
+		console.error(colors.red(error));
 	}
 })();

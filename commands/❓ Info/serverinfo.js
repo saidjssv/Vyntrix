@@ -19,14 +19,6 @@ module.exports = {
     const boostCount = guild.premiumSubscriptionCount || 0;
     const boostTier = guild.premiumTier ? `Nivel ${guild.premiumTier}` : "Ninguno";
 
-    const verificationLevels = {
-      0: "Ninguno",
-      1: "Bajo",
-      2: "Medio",
-      3: "Alto (teléfono verificado)",
-      4: "Máximo (verificación extrema)"
-    };
-
     const serverInfoEmbed = new EmbedBuilder()
       .setAuthor({ name: `📊 Información del servidor`, iconURL: guild.iconURL({ dynamic: true }) })
       .setTitle(`${guild.name}`)
@@ -39,7 +31,6 @@ module.exports = {
           `🌍 **Región:** \`${guild.preferredLocale}\``,
           `📆 **Creado el:** <t:${Math.floor(guild.createdTimestamp / 1000)}:F>`,
           `👥 **Miembros:** \`${guild.memberCount}\``,
-          `🔐 **Nivel de verificación:** \`${verificationLevels[guild.verificationLevel]}\``,
           `💎 **Boosts:** \`${boostCount}\` (${boostTier})`,
           `\n🗂️ **Canales:**`,
           `> 💬 Texto: \`${textChannels}\` | 🔊 Voz: \`${voiceChannels}\` | 📁 Categorías: \`${categories}\` | 🌐 Total: \`${totalChannels}\``,

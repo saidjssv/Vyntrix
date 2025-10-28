@@ -5,7 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('snipe')
         .setDescription('Ve el último mensaje borrado')
-        .setDefaultMemberPermissions(PermissionFlagsBits.GuildMessageManager),
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
     async execute(interaction) {
         let data = await Snipe.findOne({ channelId: interaction.channel.id });
 

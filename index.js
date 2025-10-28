@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+let colors = require('colors');
 const { Collection, Client, GatewayIntentBits } = require('discord.js');
 const { token }  = require('./config/config.json');
 const client = new Client({
@@ -25,7 +26,7 @@ for(const folder of commandFolders) {
 		if ('data' in command && 'execute' in command) {
 			client.commands.set(command.data.name, command);
 		} else {
-			console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+			console.log(colors.red(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`));
 		}
 	}
 }
@@ -44,8 +45,8 @@ for(const file of eventsFiles) {
     }
 }
 
-console.log('------------- EVENTS -------------');
-console.log(`Events loaded: \n` + eventsFiles.join('\n'));
+console.log(colors.blue('------------- EVENTS -------------'));
+console.log(colors.green(`Events loaded: \n` + eventsFiles.join('\n')));
 
 (async () => {
     await client.login(token);

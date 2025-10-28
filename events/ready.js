@@ -1,22 +1,23 @@
 const { Events } = require('discord.js');
 const { dbc } = require('../config/config.json');
 const mongoose = require('mongoose');
+let colors = require('colors')
 
 module.exports = {
     name: Events.ClientReady,
     once: true,
     async execute(client) {
-        console.log(`------------- CLIENT -------------`);
-        console.log(`Logged in as ${client.user.tag}`);
+        console.log(colors.blue(`------------- CLIENT -------------`));
+        console.log(colors.green(`Logged in as ${client.user.tag}`));
 
         try {
-            console.log('------------- DATABASE -------------')
-            console.log('Connecting to the database...');
+            console.log(colors.blue('------------- DATABASE -------------'))
+            console.log(colors.yellow('Connecting to the database...'));
             await mongoose.connect(dbc)
-            console.log('Connected to the database.');
-            console.log('------------------------------------')
+            console.log(colors.green('Connected to the database.'));
+            console.log(colors.blue('------------------------------------'))
         } catch(error) {
-            console.log(error);
+            console.log(colors.red(error));
         }
 
         const totalMembers = client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0);
@@ -38,7 +39,7 @@ module.exports = {
                 status: 'idle'
             });
         } catch(e) {
-            console.log('Se detecto un error en la presencia del bot: ' + e);
+            console.log(colors.red('Se detecto un error en la presencia del bot: ' + e));
         }
 
         setInterval(async () => {
@@ -49,7 +50,7 @@ module.exports = {
                     status: 'idle'
                 });
             } catch(e) {
-                console.log('Error actualizando presencia: ' + e);
+                console.log(colors.red('Error actualizando presencia: ' + e));
             }
         }, 15000);
     }
