@@ -38,11 +38,11 @@ module.exports = {
                 cfg = new Ticket({
                     guildId: interaction.guild.id,
                     channelId: channel.id,
-                    staffRoleId: staffRole.id, // ajusta a tu schema si usas otro nombre
+                    staffRoleId: staffRole.id,
                 });
             } else {
                 cfg.channelId = channel.id;
-                cfg.staffRoleId = staffRole.id; // ajusta a tu schema si usas otro nombre
+                cfg.staffRoleId = staffRole.id; 
             }
 
             await cfg.save();
