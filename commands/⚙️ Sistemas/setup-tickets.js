@@ -57,7 +57,7 @@ module.exports = {
 
             setTimeout(async () => {
                 const configuradoEmbed = new EmbedBuilder()
-    .setColor('#00FF7F') // Verde neón llamativo
+    .setColor('#00FF7F')
     .setTitle('✅ | Sistema de tickets configurado correctamente')
     .setDescription(
         `🎫 | **Canal de tickets:** <#${channel.id}>\n` +
