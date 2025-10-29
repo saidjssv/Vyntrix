@@ -23,11 +23,11 @@ module.exports = {
         const totalMembers = client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0);
 
         const activities = [
-            { name: 'Beabadoobee', type: 2 },
-            { name: `${client.guilds.cache.size} servidores`, type: 3 },
-            { name: `a ${totalMembers.toLocaleString()} usuarios`, type: 3 },
+            { name: 'Talk - Beabadoobee', type: 2 },
+            { name: `Administrando a ${client.guilds.cache.size} servidores`, type: 3 },
+            { name: `Ayudando a ${totalMembers.toLocaleString()} usuarios`, type: 3 },
             { name: 'Desarrollado por: sadvxz', type: 5 },
-            { name: 'Pornhub.com', type: 3 }
+            { name: 'Tutoriales de JavaScript', type: 3 }
         ];
 
         let currentActivity = 0;
