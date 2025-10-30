@@ -27,7 +27,7 @@ module.exports = {
             { name: `Administrando a ${client.guilds.cache.size} servidores`, type: 3 },
             { name: `Ayudando a ${totalMembers.toLocaleString()} usuarios`, type: 3 },
             { name: 'Desarrollado por: sadvxz', type: 5 },
-            { name: 'Viendo: E-girls', type: 3 }
+            { name: 'Viendo: E-girls en medias empapadas', type: 3 }
         ];
 
         let currentActivity = 0;

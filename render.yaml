@@ -1,0 +1,8 @@
+services:
+  type: web
+  name: vyntrix
+  env: node
+  region: oregon
+  branch: main
+  buildCommand: npm install
+  startCommand: node deploy-commands.js; node index.js
