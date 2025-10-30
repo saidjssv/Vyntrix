@@ -1,5 +1,6 @@
 const { Events } = require('discord.js');
-const { dbc } = require('../config/config.json');
+require('dotenv').config();
+const dbc = process.env.DATABASE;
 const mongoose = require('mongoose');
 let colors = require('colors')
 
