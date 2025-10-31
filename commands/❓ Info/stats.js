@@ -28,12 +28,8 @@ module.exports = {
 > ⏱️ **Uptime:** ${uptimeString}
 > 🧑‍💻 **Usuarios:** ${totalMembers.toLocaleString()}
 > 🤖 **Servidores:** ${client.guilds.cache.size}
-
-🖥️ **Hardware Info**
-> 💻 **Sistema Operativo:** ${os.type()} ${os.release()}
-> 🧮 **CPU:** ${os.cpus().length}x ${os.cpus()[0].model}
-> 🧱 **Memoria Total:** ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB
-> 🏗️ **Memoria Libre:** ${(os.freemem() / 1024 / 1024).toFixed(2)} MB
+> 💬 **Canales:** ${client.channels.cache.size.toLocaleString()}
+> 📚 **Librería:** Discord.js v14
 `);
 
         await interaction.reply({ embeds: [statsEmbed] });
