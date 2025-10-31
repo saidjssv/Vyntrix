@@ -7,5 +7,6 @@ config/
 # archivos de sistema
 .idea/
 .vscode/
+.vs/
 
 .env
