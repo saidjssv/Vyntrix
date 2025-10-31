@@ -7,7 +7,7 @@ module.exports = {
         .setName("stats")
         .setDescription("Muestra estadísticas e información del bot."),
     async execute(interaction) {
-        const { client } = interaction;
+        const client = interaction.client;
         const totalMembers = client.guilds.cache.reduce(
             (acc, guild) => acc + guild.memberCount,
             0
