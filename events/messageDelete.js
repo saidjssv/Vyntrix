@@ -6,20 +6,16 @@ module.exports = {
     async execute(message) {
         let data = await Snipe.findOne({ channelId: message.channel.id});
 
-        if(!data) {
-            let newdata = new Snipe({
-                channelId: message.channel.id,
-                userId: message.author.id,
-                msg: message.content,
-                date: Math.floor(Date.now() / 1000),
-            })
-            await newdata.save();
-        }
-        await Snipe.findOneAndUpdate({
-            channelId: message.channel.id,
-            userId: message.author.id,
-            msg: message.content,
-            date: Math.floor(Date.now() / 1000),
-        })
+        await Snipe.findOneAndUpdate(
+            { channelId: message.channel.id },
+            {
+                $set: {
+                    userId: message.author.id,
+                    msg: message.content || '[Sin contenido]',
+                    date: Math.floor(Date.now() / 1000),
+                }
+            },
+            { upsert: true, new: true }
+        );
     }
 }
