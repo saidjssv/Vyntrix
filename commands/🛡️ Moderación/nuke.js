@@ -15,7 +15,7 @@ module.exports = {
         const confirmEmbed = new EmbedBuilder()
             .setColor('Red')
             .setTitle('❗ | Esperando confirmación')
-            .setDescription('¿Estás totalmente seguro de nukear este canal? Si es así, presiona el botón de abajo.')
+            .setDescription('¿Estás totalmente seguro de clonar este canal? Si es así, presiona el botón de abajo.')
             .setTimestamp();
 
         const row = new ActionRowBuilder()
@@ -40,7 +40,7 @@ module.exports = {
             }
 
             if (i.customId === 'confirmNuke') {
-                await i.update({ content: 'Nukeando canal... 💥', embeds: [], components: [] });
+                await i.update({ content: 'Borrando canal... 💥', embeds: [], components: [] });
 
                 setTimeout(async () => {
                     const clone = await channel.clone({
@@ -52,8 +52,8 @@ module.exports = {
 
                     const nukedEmbed = new EmbedBuilder()
                         .setColor('Green')
-                        .setTitle('💥 | Canal nukeado exitosamente')
-                        .setDescription(`El canal ha sido nukeado por ${interaction.user}.`)
+                        .setTitle('💥 | Canal borrado/clonado exitosamente')
+                        .setDescription(`El canal ha sido clonado por ${interaction.user}.`)
                         .setTimestamp();
 
                     await clone.send({ embeds: [nukedEmbed] });
