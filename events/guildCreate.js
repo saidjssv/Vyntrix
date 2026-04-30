@@ -1,9 +1,10 @@
 const { Events, EmbedBuilder } = require("discord.js");
+require("dotenv").config();
 
 module.exports = {
     name: Events.GuildCreate,
     async execute(guild) {
-    const channelLog = "1430076092739223705";
+    const channelLog = process.env.LOGS_CHANNEL_ID;
 
     try {
         const owner = await guild.fetchOwner();

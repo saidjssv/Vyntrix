@@ -1,7 +1,12 @@
 const { Events, EmbedBuilder } = require("discord.js");
 require("dotenv").config();
-const dbc = process.env.DATABASE;
-const testGuildId = process.env.TEST_GUILD_ID;
+// const dbc = process.env.DATABASE;
+// const testGuildId = process.env.TEST_GUILD_ID;
+
+const config = {
+    dbc: process.env.DATABASE,
+    testGuildId: process.env.TEST_GUILD_ID,
+}
 const mongoose = require("mongoose");
 let colors = require("colors");
 
@@ -15,7 +20,7 @@ module.exports = {
         try {
             console.log(colors.blue("------------- DATABASE -------------"));
             console.log(colors.yellow("Connecting to the database..."));
-            await mongoose.connect(dbc);
+            await mongoose.connect(config.dbc);
             console.log(colors.green("Connected to the database."));
             console.log(colors.blue("------------------------------------"));
         } catch (error) {
@@ -63,7 +68,7 @@ module.exports = {
             }
         }, 15000);
 
-        const statusChannel = await client.channels.fetch(testGuildId);
+        const statusChannel = await client.channels.fetch(config.testGuildId);
         const now = new Date().toLocaleString("es-ES", {
             timeZone: "America/Mexico_City",
         });
@@ -104,7 +109,7 @@ ${err.stack}
                 .setTimestamp()
                 .setFooter({ text: "Sistema de Bot | Vyntrix 🚨" });
 
-            const statusChannel = await client.channels.fetch(testGuildId);
+            const statusChannel = await client.channels.fetch(config.testGuildId);
             statusChannel.send({ embeds: [errorEmbed] });
         });
     },
