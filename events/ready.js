@@ -1,6 +1,7 @@
 const { Events, EmbedBuilder } = require("discord.js");
 require("dotenv").config();
 const dbc = process.env.DATABASE;
+const testGuildId = process.env.TEST_GUILD_ID;
 const mongoose = require("mongoose");
 let colors = require("colors");
 
@@ -62,7 +63,7 @@ module.exports = {
             }
         }, 15000);
 
-        const statusChannel = await client.channels.fetch("1433510972076851220");
+        const statusChannel = await client.channels.fetch(testGuildId);
         const now = new Date().toLocaleString("es-ES", {
             timeZone: "America/Mexico_City",
         });
@@ -103,7 +104,7 @@ ${err.stack}
                 .setTimestamp()
                 .setFooter({ text: "Sistema de Bot | Vyntrix 🚨" });
 
-            const statusChannel = await client.channels.fetch("1433510972076851220");
+            const statusChannel = await client.channels.fetch(testGuildId);
             statusChannel.send({ embeds: [errorEmbed] });
         });
     },
